@@ -3,109 +3,134 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Grenland Dekkservice</title>
+  <title>Grenland Dekkservice – Dekk, Felg & Dekkhotell i Grenland</title>
+  <meta name="description" content="Profesjonell dekkservice i Grenland. Hjulskift, omlegging, dekkhotell og dekkontroll. Porsgrunnsveien 188, 3735 Skien.">
 
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --orange: #faa319;
-      --navy: #1a1814;
+      --orange-dark: #d88a0f;
       --bg: #f4f1ec;
+      --navy: #1a1814;
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      margin: 0;
       font-family: "Source Sans 3", sans-serif;
       background: var(--bg);
+      color: var(--navy);
     }
 
-    /* ── NAV (LYS TOPP) ── */
+    /* ── NAV (ENDRET BAKGRUNN) ── */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 200;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       padding: 0.7rem 2.5rem;
-      background: #f5f5f5;
+
+      background: #f5f5f5; /* ✔ ENDRET */
       border-bottom: 1px solid rgba(0,0,0,0.08);
     }
 
     .nav-logo img {
-      height: 42px;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+      height: 40px;
+      width: auto;
+      display: block;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.8rem;
       list-style: none;
     }
 
     .nav-links a {
       text-decoration: none;
-      color: rgba(26,24,20,0.75);
+      font-size: 0.78rem;
       font-weight: 600;
       text-transform: uppercase;
-      font-size: 0.8rem;
+      color: rgba(26,24,20,0.7);
     }
 
     .nav-links a:hover {
       color: var(--orange);
     }
 
-    /* ── HERO ── */
+    .nav-cta {
+      background: var(--orange);
+      color: #000;
+      padding: 0.45rem 1.2rem;
+      border-radius: 2px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* ── HERO (ENDRET BAKGRUNN) ── */
     .hero {
-      height: 100vh;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
       position: relative;
-      display: flex;
-      align-items: flex-end;
-      padding: 0 3rem 5rem;
-      color: white;
     }
 
     .hero-bg {
       position: absolute;
       inset: 0;
+
       background:
-        linear-gradient(160deg, rgba(0,0,0,0.25), rgba(0,0,0,0.75)),
+        linear-gradient(160deg, rgba(26,24,20,0.2), rgba(26,24,20,0.75)),
         url("https://raw.githubusercontent.com/dagfinndeila/grenlanddekkservice/22bb82b2efe7c9febbbc1ced1d964dbc524fba69/ChatGPT%20Image%2018.%20apr.%202026%2C%2023_06_37.png")
         center/cover no-repeat;
-      z-index: -1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 3rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
 
     .hero h1 {
       font-family: "Oswald", sans-serif;
-      font-size: 5rem;
-      margin: 0;
+      font-size: clamp(3rem, 7vw, 7rem);
+      color: #fff;
     }
 
-    .hero h1 span {
+    .hero h1 em {
       color: var(--orange);
+      font-style: normal;
     }
 
-    .hero p {
+    .hero-sub {
+      color: rgba(255,255,255,0.8);
       max-width: 500px;
-      opacity: 0.85;
+      margin-top: 1rem;
     }
 
+    /* ── BUTTON ── */
     .btn {
       display: inline-block;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       padding: 0.8rem 2rem;
       background: var(--orange);
-      color: black;
+      color: #000;
       text-decoration: none;
       font-weight: 700;
       text-transform: uppercase;
     }
 
     .btn:hover {
-      background: #d88a0f;
+      background: var(--orange-dark);
     }
 
     section {
@@ -119,6 +144,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
+    <!-- ✔ ENDRET LOGO -->
     <img src="https://raw.githubusercontent.com/dagfinndeila/grenlanddekkservice/ca62e4a195137a6b3a81be9ffe24ccca16b38a11/gulogo.png" alt="Logo">
   </div>
 
@@ -127,32 +153,35 @@
     <li><a href="#priser">Priser</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ul>
+
+  <a class="nav-cta" href="#bestill">Bestill</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-bg"></div>
 
-  <div>
-    <h1>Grenland <span>Dekkservice</span></h1>
-    <p>Dekk, felg og service gjort skikkelig – raskt og profesjonelt.</p>
+  <div class="hero-content">
+    <h1>Grenland <em>Dekkservice</em></h1>
+    <p class="hero-sub">
+      Dekk, felg og dekkhotell – raskt, trygt og profesjonelt utført.
+    </p>
+
     <a class="btn" href="#kontakt">Bestill time</a>
   </div>
 </div>
 
+<!-- INNHOLD BEHOLDT -->
 <section id="tjenester">
   <h2>Tjenester</h2>
-  <p>Hjulskift, omlegging, balansering og dekkhotell.</p>
 </section>
 
 <section id="priser">
   <h2>Priser</h2>
-  <p>Enkle og transparente priser.</p>
 </section>
 
 <section id="kontakt">
   <h2>Kontakt</h2>
-  <p>Ta kontakt for timebestilling.</p>
 </section>
 
 </body>

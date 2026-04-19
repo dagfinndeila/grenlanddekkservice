@@ -1092,5 +1092,22 @@ const revealObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 reveals.forEach(r => revealObs.observe(r));
 </script>
+  <script>
+// Auto-reveal alle seksjoner og kort
+document.querySelectorAll(
+  'section, .service-card, .price-card, .trailer-card, .stat-item, .about-bullet, .bestill-step'
+).forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(28px)';
+  el.style.transition = `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s`;
+
+  new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    }
+  }, { threshold: 0.12 }).observe(el);
+});
+</script>
 </body>
 </html>
